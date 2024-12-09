@@ -18,7 +18,6 @@
 >
 </details>
 
-
 <details>
   <summary style="display:list-item">Redo is not supported</summary>
 
@@ -27,8 +26,6 @@
 > but
 > it also might not. Use it at your own risk.
 </details>
-
-
 
 <details>
   <summary style="display:list-item">Freezing when reviewing</summary>
@@ -87,38 +84,7 @@
 >```
 >The `${1}` part re-inserts the `(\S)` character that was found earlier.
 
-
 </details>
-
-
-<details>
-  <summary style="display:list-item">Ruby characters (furigana, etc.) are displayed wrong in am-highlighted</summary>
-
-> When morphs are not recognized in the same way that the ruby characters intended, then we can get ugly things like this:
->
-> <img src="../img/furigana-bug.png" alt="image" width="70%" height="auto">
->
-> This is because `錬金術師` gets split into -> `[錬金術, 師]` and the ruby characters are after the second morph, so
-> they only attach to that one. Fixing this programmatically is not possible, unfortunately. 
-> 
->If you _really_ wanted to
-> fix this particular card then you would have to do some manual editing to the ruby characters in the original field,
-> e.g. splitting it into two different parts:
-> ``` 
-> original:
-> 錬金術師[れんきんじゅつし]
-> 
-> split:
-> 錬金術[れんきんじゅ]師[つし]
-> ```
-> then `am-highlighted` will produce this instead:
-> 
-> <img src="../img/furigana-bug-fixed.png" alt="image" width="60%" height="auto">
-
-</details>
-
-</details>
-
 
 <details>
   <summary style="display:list-item">Incorrect highlighting of ignored names</summary>

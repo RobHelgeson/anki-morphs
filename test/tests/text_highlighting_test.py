@@ -12,9 +12,9 @@ from test.fake_environment_module import (  # pylint:disable=unused-import
 
 import pytest
 
+from ankimorphs import text_highlighting
 from ankimorphs.ankimorphs_config import AnkiMorphsConfig
 from ankimorphs.morpheme import Morpheme
-from ankimorphs.text_highlighting import get_highlighted_text
 
 ##############################################################################################
 #                                    CASE: JAPANESE ONE
@@ -274,12 +274,14 @@ one_test_set = [
     one_test_set * 1,
     indirect=["fake_environment_fixture"],
 )
-def test_highlight_text_jit(  # pylint:disable=unused-argument
+def test_highlighting(  # pylint:disable=unused-argument
     fake_environment_fixture: FakeEnvironment,
     input_text: str,
     card_morphs: list[Morpheme],
     correct_output: str,
 ) -> None:
     am_config = AnkiMorphsConfig()
-    highlighted_text: str = get_highlighted_text(am_config, card_morphs, input_text)
+    highlighted_text: str = text_highlighting.get_highlighted_text(
+        am_config, card_morphs, input_text
+    )
     assert highlighted_text == correct_output
